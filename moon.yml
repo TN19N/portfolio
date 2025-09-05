@@ -4,6 +4,8 @@ stack: frontend
 layer: application
 
 fileGroups:
+  assets:
+    - assets/**/*
   sources:
     - src/**/*
     - Cargo.toml
@@ -13,10 +15,11 @@ fileGroups:
     - tests/**/*
 
 tasks:
-  build:
-    command: cargo build
+  build/release:
+    command: dx build --release 
     inputs:
       - "@globs(sources)"
+      - "@globs(assets)"
   test:
     command: cargo test
     inputs:
