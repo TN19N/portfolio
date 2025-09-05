@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=https://moonrepo.dev/schemas/project.json
+
+stack: frontend
+layer: application
+
+fileGroups:
+  sources:
+    - src/**/*
+    - Cargo.toml
+    - Dioxus.toml
+    - .env
+  tests:
+    - tests/**/*
+
+tasks:
+  build:
+    command: cargo build
+    inputs:
+      - "@globs(sources)"
+  test:
+    command: cargo test
+    inputs:
+      - "@globs(sources)"
+      - "@globs(tests)"
+  check:
+    command: cargo check
+    inputs:
+      - "@globs(sources)"
+  fmt/check:
+    command: cargo fmt
+    args: ["--check"]
+    inputs:
+      - "@globs(sources)"
+  clippy/check:
+    command: cargo clippy
+    args: ["--", "--deny", "warnings"]
+    inputs:
+      - "@globs(sources)"
