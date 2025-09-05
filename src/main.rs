@@ -33,16 +33,33 @@ const FAVICON: Asset = asset!("/assets/favicon.ico");
 const MAIN_CSS: Asset = asset!("/assets/styling/main.css");
 const TAILWIND_CSS: Asset = asset!("/assets/tailwind.css");
 
+/// Starts the application by launching the root Dioxus component (`App`) using the configured platform.
+///
+/// # Examples
+///
+/// ```no_run
+/// // In `main.rs`
+/// dioxus::launch(App);
+/// ```
 fn main() {
     // The `launch` function is the main entry point for a dioxus app. It takes a component and renders it with the platform feature
     // you have enabled
     dioxus::launch(App);
 }
 
-/// App is the main component of our app. Components are the building blocks of dioxus apps. Each component is a function
-/// that takes some props and returns an Element. In this case, App takes no props because it is the root of our app.
+/// Root UI component for the application.
 ///
-/// Components should be annotated with `#[component]` to support props, better error messages, and autocomplete
+/// Renders document head links (favicon and CSS assets) and mounts the application router
+/// (Router::<Route>) which applies the Navbar layout and renders route content.
+///
+/// This component takes no props and serves as the app entry point used with `dioxus::launch`.
+///
+/// # Examples
+///
+/// ```
+/// // In `main`, start the app:
+/// dioxus::launch(App);
+/// ```
 #[component]
 fn App() -> Element {
     // The `rsx!` macro lets us define HTML inside of rust. It expands to an Element with all of our HTML inside.

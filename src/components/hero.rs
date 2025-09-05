@@ -2,6 +2,22 @@ use dioxus::prelude::*;
 
 const HEADER_SVG: Asset = asset!("/assets/header.svg");
 
+/// Renders the hero section: a header SVG and a set of static links to Dioxus resources.
+///
+/// The component is static and returns an Element containing an image (HEADER_SVG) with id
+/// "header" and a "links" container with six anchor elements pointing to documentation, community,
+/// tooling, and extension pages.
+///
+/// # Examples
+///
+/// ```rust
+/// use dioxus::prelude::*;
+///
+/// #[component]
+/// fn App(cx: Scope) -> Element {
+///     cx.render(rsx!(Hero {}))
+/// }
+/// ```
 #[component]
 pub fn Hero() -> Element {
     rsx! {
