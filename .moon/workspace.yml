@@ -3,8 +3,6 @@
 projects:
   - "."
 
-versionConstraint: 1.40.1
-
 experiments:
   fasterGlobWalk: true
   gitV2: true

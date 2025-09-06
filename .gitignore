@@ -1,6 +1,5 @@
 # Rust
 /target
-/rust-toolchain.toml
 
 # moon
 /.moon/cache
