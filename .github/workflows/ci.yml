@@ -8,6 +8,10 @@ on:
 env:
   CARGO_TERM_COLOR: always
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -29,7 +33,7 @@ jobs:
         with:
           auto-install: true
 
-      - name: Run Checks 
+      - name: Run Checks
         run: moon ci :check :fmt/check :clippy/check :test --color
 
       - name: Run report
