@@ -2,3 +2,4 @@
 
 [web.app]
 title = "portfolio"
+base_path = "portfolio"
