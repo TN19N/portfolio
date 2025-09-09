@@ -16,7 +16,7 @@ fileGroups:
 
 tasks:
   build/release:
-    command: dx build --release 
+    command: dx build --release
     inputs:
       - "@globs(sources)"
       - "@globs(assets)"
@@ -29,11 +29,26 @@ tasks:
     command: cargo check
     inputs:
       - "@globs(sources)"
-  fmt/check:
-    command: cargo fmt
-    args: ["--check"]
+  dx/fmt:
+    command: dx fmt
     inputs:
       - "@globs(sources)"
+  fmt:
+    command: cargo fmt
+    inputs:
+      - "@globs(sources)"
+    deps:
+      - dx/fmt
+  dx/fmt/check:
+    extends: dx/fmt
+    args: ["--check"]
+  fmt/check:
+    extends: fmt
+    args: ["--check"]
+    deps:
+      - dx/fmt/check
+    options:
+      mergeDeps: replace
   clippy/check:
     command: cargo clippy
     args: ["--", "--deny", "warnings"]
