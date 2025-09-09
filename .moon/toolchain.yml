@@ -7,5 +7,7 @@ rust:
   components:
     - clippy
     - rustfmt
+  targets:
+    - wasm32-unknown-unknown
   bins:
     - bin: dioxus-cli@0.7.0-rc.0

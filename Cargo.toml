@@ -5,7 +5,7 @@ authors = ["Mustapha <mostafaanawawi@gmail.com>"]
 edition = "2024"
 
 [dependencies]
-dioxus = { version = "0.7.0-rc.0" }
+dioxus = { version = "0.7.0-rc.0", features = ["router"] }
 
 [features]
 default = ["web"]
